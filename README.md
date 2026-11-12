@@ -1,31 +1,59 @@
-# Saltline — Fable 5.2 FPS
+# 盐线 · Saltline 中文版
 
-A small browser first-person shooter: one level in a rainy container port. Cut three uplink relays while drones ("Gulls") and robot dogs ("Hounds") hunt you.
-<img width="1685" height="906" alt="image" src="https://github.com/user-attachments/assets/8dd32149-90f4-4d69-a573-4411a49a9ba9" />
+一款单文件浏览器第一人称射击游戏。雨夜港区的防御系统失控，你需要在机械飞鸥与机械猎犬的追击下，切断堆场、仓库和码头的三处通信中继，最后登船撤离。
 
+**[在线试玩](https://1873575791.github.io/saltline-fable-5.2/)**
 
-## Demo
-https://realcodebear.github.io/saltline-fable-5.2/
+## 汉化内容
 
-## Where it comes from
+- 主菜单、暂停菜单、死亡提示、行动简报与评级。
+- 画质、音量、视角、全屏等设置及键鼠、触屏、手柄操作说明。
+- 任务目标、交互提示、弹药提示、击杀反馈、指南针与无线电字幕。
+- 加载提示、无障碍标签和中文字体、行高适配。
 
-- Built by **Claude Fable 5.2**. The run was set up by Felix Rieseberg (Anthropic) and shared on X on 2026-11-09:
-  https://x.com/felixrieseberg/status/2119925633564463609
-- Original playable artifact: https://claude.ai/artifact/BGY1SztrAYcJQHSsnHHGmp
-- Per his post: one prompt, no human feedback, about 8 hours, about 2.7M output and 445M input tokens (heavily cached), about $550 at API pricing. Models, sounds and textures are all made in code. These numbers are his own and not checked here.
+保留游戏原名 Saltline、武器型号、按键名称和场景中的工业标识。游戏玩法与资源生成方式沿用原版。
 
-All credit for the game goes to its original author. This repo is a mirror so people can run it locally. If you are the author and want it taken down, open an issue.
+## 本地运行
 
-## What changed from the artifact
-
-Nothing in the game code. The claude.ai frame-runtime scripts were removed from `<head>`, and a doctype, charset and viewport tag were added so the file runs as a plain web page.
-
-## Run it
+无需安装依赖，在项目目录运行：
 
 ```sh
 python3 -m http.server 8731
 ```
 
-Then open http://localhost:8731 and click the page to capture the mouse and start the sound.
+然后打开 <http://localhost:8731>，点击“开始行动”。浏览器会请求锁定鼠标，按 `Esc` 可以释放并暂停。
 
-The whole game is one file, `index.html` (~1.4 MB). It bundles three.js and loads fonts from Google Fonts. There are no other outside assets.
+## 操作
+
+| 动作 | 按键 |
+| --- | --- |
+| 移动 | W / A / S / D |
+| 转动视角 | 鼠标 |
+| 开火 / 瞄准 | 鼠标左键 / 右键 |
+| 换弹 | R |
+| 切断中继 | 靠近目标后按住 E |
+| 跳跃 / 冲刺 | Space / Shift |
+| 蹲伏 | C 或 Ctrl |
+| 近战 | F |
+| 暂停 | Esc 或 P |
+
+手机使用屏幕左侧移动、右侧转向，以及屏幕上的操作按钮。手柄操作见游戏内“操作说明”。
+
+## 来源与署名
+
+本仓库是《Saltline》的中文镜像，原游戏的创作归属保持不变。
+
+- 原作者：**Felix Rieseberg**；据作者介绍，游戏使用 **Claude Fable 5.2** 制作。
+- [作者发布记录](https://x.com/felixrieseberg/status/2119925633564463609)
+- [原始可玩 Artifact](https://claude.ai/artifact/BGY1SztrAYcJQHSsnHHGmp)
+- [本地运行版本的上游镜像](https://github.com/realcodebear/saltline-fable-5.2)
+
+作者发布记录提到：一次提示词、无人工反馈、约 8 小时，约 270 万输出 token 和 4.45 亿输入 token（大量缓存），按 API 标价约 550 美元。这些数字来自作者陈述，本仓库未独立核验。
+
+上游镜像移除了 Claude 页面专用的 frame-runtime 脚本，并补充了 doctype、字符编码和 viewport 配置；本仓库在此基础上增加简体中文界面。若原作者希望撤下镜像，可在仓库中提交 issue。
+
+整个游戏集中在约 **1.4MB** 的 `index.html` 中，内嵌 Three.js。模型、材质与音效由代码生成；页面字体会请求 Google Fonts，无法加载时使用本机字体。
+
+## 发布
+
+GitHub Pages 从 `main` 分支根目录发布。推送更新后，线上版本会自动重新部署。
